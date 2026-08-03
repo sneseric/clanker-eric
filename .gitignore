@@ -216,3 +216,19 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Ignore everything in the local_data folder
+local_data/*
+
+# Un-ignore the main brain example file
+!local_data/brain.example.md
+
+# Un-ignore the memories directory itself so Git will look inside it
+!local_data/memories/
+
+# Ignore everything inside the memories folder (like your real .md files)
+local_data/memories/*
+
+# Un-ignore the two specific example templates
+!local_data/memories/example_user.example.md
+!local_data/memories/pending_user.example.md

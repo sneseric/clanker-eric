@@ -1,0 +1,7 @@
+services:
+  clanker-eric:
+    build: .
+    container_name: clanker-eric
+    restart: unless-stopped
+    env_file:
+      - .env
