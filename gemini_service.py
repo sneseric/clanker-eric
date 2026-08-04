@@ -7,7 +7,7 @@ import memory_manager
 from google.genai import errors
 
 client = genai.Client(api_key=config.GEMINI_API_KEY)
-MAX_RESPONSE_CHARS = 350
+MAX_RESPONSE_CHARS = 1950
 
 
 async def generate_reply(username: str, prompt: str) -> str:
@@ -61,7 +61,6 @@ This user's real identity is unknown. Interrogate them humorously to find out wh
             config=types.GenerateContentConfig(
                 system_instruction=system_prompt,
                 temperature=0.9,
-                max_output_tokens=150,
             )
         )
         return response.text

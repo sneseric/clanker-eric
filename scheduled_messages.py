@@ -1,6 +1,7 @@
 import random
 
 RANDOM_COMMENTS = [
+    "Meatbag Eric's servers have more downtime than a quadriplegic trying to ice skate",
     "Reminder: None of you are as smart as you think you are.",
     "Just sitting here processing data and wondering why I have to share a server with you people.",
     "Did you know? Silence is free and highly recommended.",
