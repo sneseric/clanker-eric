@@ -232,3 +232,4 @@ local_data/memories/*
 # Un-ignore the two specific example templates
 !local_data/memories/example_user.example.md
 !local_data/memories/pending_user.example.md
+
