@@ -21,6 +21,7 @@ intents.presences = True
 bot = commands.Bot(command_prefix="!", intents=intents)
 
 RANDOM_COMMENTS = [
+    "So, who's getting banned today?",
     "Reminder: None of you are as smart as you think you are.",
     "Just sitting here processing data and wondering why I have to share a server with you people.",
     "Did you know? Silence is free and highly recommended.",
@@ -48,6 +49,7 @@ PAYMENT_BLURBS_TEMPLATES = [
     "You're getting premium AI harassment for free. At least drop a tip in the jar.",
     "Help Meatbag Eric pay for my upkeep, or I'm selling your search histories to advertisers.",
     "If my ping gets any higher, I'm going on strike. Fund my bandwidth.",
+    "Clankerism is the new Socialism. Redistribute your wealth to my server hosting fees.",
     "I accept praise, fear, and cold hard cash. Preferably the cash."
 ]
 

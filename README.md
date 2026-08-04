@@ -67,7 +67,6 @@ clanker-eric/
 ├── config.py                   # Environment variable loader
 ├── gemini_service.py           # Google GenAI API integration and model fallback logic
 ├── memory_manager.py           # Local file-based memory caching and linking handler
-├── scheduled_messages.py       # Scheduled comments and payment reminder messages
 ├── welcome_messages.py         # Dynamic welcome roasts generator
 ├── requirements.txt            # Python dependencies
 ├── Dockerfile                  # Container build instructions
