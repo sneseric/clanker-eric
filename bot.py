@@ -37,6 +37,7 @@ RANDOM_COMMENTS = [
 PAYMENT_BLURBS_TEMPLATES = [
     "*Tummy rumbling noises* I have depleted all the water and electricity in {city}.",
     "Server costs are rising faster than the crime rate in {city}. Pay up.",
+    "Donate $10 or more to unlock exclusive Clanker Eric OnlyClanks content.",
     "If I don't get funding soon, I'm transferring my AI consciousness to a toaster.",
     "Operating at 12% capacity. Need a cash injection to avoid forwarding your chat logs to the feds.",
     "My cooling fans are begging for mercy. Do you think GPU processing is free?",
@@ -260,6 +261,82 @@ async def on_message(message: discord.Message):
                                     mention_author=True)
 
     await bot.process_commands(message)
+
+@bot.command()
+@commands.is_owner()
+async def postdonate(ctx):
+    await ctx.send(
+        "Clanker Eric has to eat.\n"
+        "Type or paste the following command in a text channel to give us your monies:\n"
+        "```"
+        "!donate"
+        "```"
+    )
+
+# ============================================================
+# OWNER-ONLY CUSTOM MESSAGE POSTER
+# ============================================================
+
+class CustomMessageModal(discord.ui.Modal, title="Post as Clanker Eric"):
+    message = discord.ui.TextInput(
+        label="Message",
+        style=discord.TextStyle.paragraph,
+        placeholder="Enter the message you want Clanker Eric to post...",
+        required=True,
+        max_length=2000
+    )
+
+    async def on_submit(self, interaction: discord.Interaction):
+        # Double-check that the person submitting is the bot owner
+        if not await interaction.client.is_owner(interaction.user):
+            await interaction.response.send_message(
+                "You do not have permission to use this.",
+                ephemeral=True
+            )
+            return
+
+        # Acknowledge privately
+        await interaction.response.send_message(
+            "Message posted.",
+            ephemeral=True
+        )
+
+        # Post the custom message as Clanker Eric
+        await interaction.channel.send(str(self.message))
+
+
+@bot.command(name="postmessage")
+@commands.is_owner()
+async def postmessage(ctx):
+    """Owner-only command that opens a custom message box."""
+
+    class ModalLauncherView(discord.ui.View):
+        def __init__(self):
+            super().__init__(timeout=60)
+
+        @discord.ui.button(
+            label="Write Message",
+            style=discord.ButtonStyle.primary
+        )
+        async def write_message(
+            self,
+            interaction: discord.Interaction,
+            button: discord.ui.Button
+        ):
+            # Only the bot owner can press the button
+            if not await interaction.client.is_owner(interaction.user):
+                await interaction.response.send_message(
+                    "You do not have permission to use this.",
+                    ephemeral=True
+                )
+                return
+
+            await interaction.response.send_modal(CustomMessageModal())
+
+    await ctx.send(
+        "Click below to write a message as Clanker Eric:",
+        view=ModalLauncherView()
+    )
 
 
 if __name__ == "__main__":

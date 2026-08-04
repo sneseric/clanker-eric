@@ -51,7 +51,7 @@ cd clanker-eric
 
 ## Project Structure & Required Files
 
-```text
+```
 clanker-eric/
 │
 ├── local_data/
