@@ -94,12 +94,20 @@ def get_shuffled_general_comment() -> str:
 #             return True
 #     return False
 
-# --- NEW CODE ---
+# --- OLD CODE ---
+#def is_audience_present(guild: discord.Guild) -> bool:
+#    """Returns True ONLY if a non-bot user other than the server owner is in the server."""
+#    for member in guild.members:
+#        # Dynamically checks against the server owner instead of a hardcoded string
+#        if not member.bot and member != guild.owner:
+#            return True
+#    return False
+
 def is_audience_present(guild: discord.Guild) -> bool:
-    """Returns True ONLY if a non-bot user other than the server owner is in the server."""
+    """Returns True ONLY if a non-bot user other than the server owner is online in the server."""
     for member in guild.members:
-        # Dynamically checks against the server owner instead of a hardcoded string
-        if not member.bot and member != guild.owner:
+        # Checks against the server owner and ensures the member is not offline
+        if not member.bot and member != guild.owner and member.status != discord.Status.offline:
             return True
     return False
 
