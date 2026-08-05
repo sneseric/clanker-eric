@@ -88,24 +88,6 @@ def get_shuffled_general_comment() -> str:
     return general_comment_deck.pop()
 
 
-# --- OLD CODE ---
-# def is_audience_present(guild: discord.Guild) -> bool:
-#     """Returns True ONLY if a non-bot user other than sneseric is in the server."""
-#     for member in guild.members:
-#         # Removed the status check so offline caching doesn't block execution
-#         if not member.bot and member.name != "sneseric":
-#             return True
-#     return False
-
-# --- OLD CODE ---
-#def is_audience_present(guild: discord.Guild) -> bool:
-#    """Returns True ONLY if a non-bot user other than the server owner is in the server."""
-#    for member in guild.members:
-#        # Dynamically checks against the server owner instead of a hardcoded string
-#        if not member.bot and member != guild.owner:
-#            return True
-#    return False
-
 def is_audience_present(guild: discord.Guild) -> bool:
     """Returns True ONLY if a non-bot user other than the server owner is online in the server."""
     for member in guild.members:
@@ -115,23 +97,6 @@ def is_audience_present(guild: discord.Guild) -> bool:
     return False
 
 
-# --- OLD CODE ---
-# @bot.event
-# async def on_ready():
-#     memory_manager.load_all_memories()
-#     print(f"🤖 Clanker Eric is online and operational.")
-#
-#     try:
-#         await bot.load_extension("server_functions.donate")
-#     except Exception as e:
-#         print(f"Failed to load donate extension: {e}")
-#
-#     if not payment_chatter.is_running():
-#         payment_chatter.start()
-#     if not general_chatter.is_running():
-#         general_chatter.start()
-
-# --- NEW CODE ---
 @bot.event
 async def on_ready():
     memory_manager.load_all_memories()

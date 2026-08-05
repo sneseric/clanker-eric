@@ -35,8 +35,13 @@ Then enter the project directory:
 ```bash
 cd clanker-eric
 ```
+### Step 2: Install required packages:
 
-### Step 2: Discord Developer Portal Configuration
+```
+pip install -r requirements.txt
+```
+
+### Step 3: Discord Developer Portal Configuration
 
 1. Go to the Discord Developer Portal and click New Application. Name your bot.
 2. Go to the Bot tab on the left menu:
@@ -47,9 +52,10 @@ cd clanker-eric
    - Under Bot Permissions, select Read Messages/View Channels, Send Messages, Embed Links, and Read Message History.
    - Copy the generated URL, paste it into your browser, and invite the bot to your server.
 
-### Step 3: Environment Configuration
+### Step 4: Environment Configuration
 
-## Project Structure & Required Files
+
+### Project Structure & Required Files
 
 ```
 clanker-eric/
@@ -84,11 +90,11 @@ AMAZON_REGISTRY_LINK=https://www.amazon.com/...
 GOFUNDME_LINK=https://www.gofundme.com/...
 ```
 
-### Step 4: Run via Docker
+### Step 5: Run via Docker
 
 Open a terminal in the project root directory and run:
 
-```bash
+```
 docker compose up -d --build
 ```
 
