@@ -3,7 +3,15 @@ services:
     build: .
     container_name: clanker-eric
     restart: unless-stopped
+
+    ports:
+      - "127.0.0.1:8080:8080"
+
+    command: >
+      sh -c "python -c 'from http.server import HTTPServer, BaseHTTPRequestHandler; HTTPServer((\"0.0.0.0\", 8080), type(\"H\", (BaseHTTPRequestHandler,), { \"do_GET\": lambda s: (s.send_response(200), s.end_headers()), \"log_message\": lambda *a: None })).serve_forever()' & python bot.py"
+
     env_file:
       - .env
+
     volumes:
       - ./local_data:/app/local_data
