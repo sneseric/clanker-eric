@@ -139,7 +139,7 @@ async def on_member_join(member: discord.Member):
         await channel.send(f"{roast}\n\n...Anyway, who are you {member.mention}?")
 
 
-@tasks.loop(minutes=12)
+@tasks.loop(minutes=20)
 async def payment_chatter():
     """Fires randomly between 12 and 15 minutes."""
     await asyncio.sleep(random.randint(0, 180))

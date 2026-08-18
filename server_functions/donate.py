@@ -11,18 +11,26 @@ class DonationView(discord.ui.View):
         if config.BUY_ME_COFFEE_LINK and config.BUY_ME_COFFEE_LINK != "Link not configured":
             self.add_item(discord.ui.Button(label="Buy me a coffee", style=discord.ButtonStyle.link,
                                             url=config.BUY_ME_COFFEE_LINK))
+        # 2. Kofi
+        if config.KOFI_LINK:
+            self.add_item(discord.ui.Button(label="Buy me a coffee from some other place", style=discord.ButtonStyle.link,
+                                            url=config.KOFI_LINK))
+        # 3. Patreon
+        if config.PATREON_LINK:
+            self.add_item(discord.ui.Button(label="Buy me a coffee every month", style=discord.ButtonStyle.link,
+                                            url=config.PATREON_LINK))
 
-        # 2. Amazon Wishlist
+        # 4. Amazon Wishlist
         if config.AMAZON_WISHLIST_LINK and config.AMAZON_WISHLIST_LINK != "Link not configured":
             self.add_item(discord.ui.Button(label="Buy me something on Amazon", style=discord.ButtonStyle.link,
                                             url=config.AMAZON_WISHLIST_LINK))
 
-        # 3. Amazon Registry
+        # 5. Amazon Registry
         if config.AMAZON_REGISTRY_LINK and config.AMAZON_REGISTRY_LINK != "Link not configured":
             self.add_item(discord.ui.Button(label="Buy me something expensive on Amazon", style=discord.ButtonStyle.link,
                                             url=config.AMAZON_REGISTRY_LINK))
 
-        # 4. GoFundMe (Last)
+        # 6. GoFundMe (Last)
         if config.GOFUNDME_LINK and config.GOFUNDME_LINK != "Link not configured":
             self.add_item(
                 discord.ui.Button(label="Donate", style=discord.ButtonStyle.link, url=config.GOFUNDME_LINK, emoji="🎻"))

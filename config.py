@@ -10,6 +10,8 @@ FALLBACK_MODEL_NAME = "gemini-3.5-flash-lite"
 
 # Load payment links dynamically
 BUY_ME_COFFEE_LINK = os.getenv("BUY_ME_COFFEE_LINK", "Link not configured")
+KOFI_LINK = os.getenv("KOFI_LINK", "Link not configured")
+PATREON_LINK = os.getenv("PATREON_LINK", "Link not configured")
 AMAZON_WISHLIST_LINK = os.getenv("AMAZON_WISHLIST_LINK", "Link not configured")
 AMAZON_REGISTRY_LINK = os.getenv("AMAZON_REGISTRY_LINK", "Link not configured")
 GOFUNDME_LINK = os.getenv("GOFUNDME_LINK", "Link not configured")
